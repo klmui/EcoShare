@@ -4,8 +4,16 @@ const express = require('express'),
       app = express();
 
 // Models
+const Action = require('./models/action');
 
 // Connect to mongo DB
+mongoose.connect("mongodb+srv://kenny:G5jXaD86Vhdiug9j@cluster0-rc9rf.mongodb.net/test?retryWrites=true&w=majority", {useNewUrlParser: true, useUnifiedTopology: true})
+.then(() => {
+  console.log("Connected to DB!");
+})
+.catch(() => {
+  console.log("Connection failed");
+});
 
 // Middleware for all paths for parsing JSON data
 app.use(bodyParser.json());
